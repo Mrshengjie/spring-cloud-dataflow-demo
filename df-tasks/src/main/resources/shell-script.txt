@@ -1,0 +1,10 @@
+dataflow config server http://localhost:9393
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1.RELEASE
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1.RELEASE
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1.RELEASE
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+stream deploy --name foostream
+app register --name my-task --type task --uri maven://com.df.demo:df-tasks:0.0.1.RELEASE
+task create --name myjob --definition my-task
+task launch myjob
+task execution list

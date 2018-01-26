@@ -1,0 +1,96 @@
+// dataflow 1.2.0.RELEASE log opened at 2018-01-25 15:21:05
+// dataflow 1.2.0.RELEASE log opened at 2018-01-25 15:38:59
+dataflow config server http://localhost:9393
+app list
+app list
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1-SNAPSHOT
+app list
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1-SNAPSHOT
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1-SNAPSHOT
+stream list 
+// [failed] stream create --name foostream --definition "a | b | c"
+// [failed] stream create --name foostream --definition 'a | b | c'
+// [failed] stream create --name "foostream" --definition 'a | b | c'
+// [failed] stream create --name "foostream" --definition 'source | processor | sink'
+stream create --name "foostream" --definition 'df-sources | df-processors | df-sinks'
+stream list
+// [failed] stream deploy --name foostream
+// [failed] stream deploy --name foostream
+c
+// dataflow 1.2.0.RELEASE log opened at 2018-01-25 16:05:55
+dataflow config server http://localhost:9393
+app list
+stream list
+// [failed] stream deploy --name foostream
+// [failed] stream deploy --name foostream
+// [failed] stream deploy --name foostream
+// [failed] app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1-SNAPSHOT
+// [failed] stream deploy --name foostream
+app list
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1-SNAPSHOT
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1-SNAPSHOT
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1-SNAPSHOT
+app list
+stream list
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+stream list
+// [failed] stream deploy --name foostream
+app list
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1-SNAPSHOT
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1-SNAPSHOT
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1-SNAPSHOT
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+// [failed] stream deploy --name foostream
+app list
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1.RELEASE
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1.RELEASE
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1.RELEASE
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+// [failed] stream deploy --name foostream
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1.RELEASE
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1.RELEASE
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1.RELEASE
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+stream deploy --name foostream
+app register --name my-task --type task --uri maven://com.df.demo:df-tasks:0.0.1.RELEASE
+app list
+task create --name myjob --definition my-task
+task launch myjob
+task execution list
+task execution list
+task list
+task launch myjob
+task list
+task execution list
+task destroy myjob
+task execution list
+task execution list
+task execution list
+task list
+task create --name myjob --definition my-task
+task list
+task execution list
+task list
+task execution list
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1.RELEASE
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1.RELEASE
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1.RELEASE
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+stream deploy --name foostream
+app register --name my-task --type task --uri maven://com.df.demo:df-tasks:0.0.1.RELEASE
+task create --name myjob --definition my-task
+task launch myjob
+// dataflow 1.2.0.RELEASE log opened at 2018-01-26 12:14:31
+dataflow config server http://localhost:9393
+app register --name df-sources --type source --uri maven://com.df.demo:df-sources:0.0.1.RELEASE
+app register --name df-sinks --type sink --uri maven://com.df.demo:df-sinks:0.0.1.RELEASE
+app register --name df-processors --type processor --uri maven://com.df.demo:df-processors:0.0.1.RELEASE
+stream create --name foostream --definition 'df-sources | df-processors | df-sinks'
+stream deploy --name foostream
+app register --name my-task --type task --uri maven://com.df.demo:df-tasks:0.0.1.RELEASE
+task create --name myjob --definition my-task
+task launch myjob
+task execution list
+task launch myjob
+task launch myjob
+task launch myjob
